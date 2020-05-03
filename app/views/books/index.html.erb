@@ -1,5 +1,17 @@
-<div class="row">
-	<div class="col-xs-3">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+
+		<div class="error_msg">
+			<% if @book.errors.any? %>
+				<h4><%= @book.errors.count %> error prohibited this obj from being saved: </h4>
+				<ul>
+					<% @book.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
 
 		<h2>User info</h2>
 		<%= render 'users/profile', user: current_user %>
@@ -37,9 +49,7 @@
 				<% end %>
 			</tbody>
 		</table>
-
-		<!--books一覧 -->
-
-
+		</div>
 	</div>
 </div>
+<!--books一覧 -->
